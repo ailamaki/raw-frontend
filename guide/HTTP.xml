@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <guide>
 <step>
-<doc>The user interface is about to run in demo mode. It is going to walk
-through a number of QRAWL queries, illustrating the capabilities of the language.
-For that we need a dataset. We'll use ([httplogs][1]) (please click the name
+<doc>The user interface is about to run in demo mode. It will walk you
+through a number of RAW queries, illustrating the capabilities of the language. 
+You can expect a language which supports all classical SQL features, with the addition of a few extensions 
+to help express queries on hierarchical data (for example).
+
+To run a query, we need a dataset. We'll use ([httplogs][1]) (please click the name
 to load it, and wait until there is a success notification at the bottom of the screen).
 
 * httplogs ([load][1])
@@ -25,7 +28,7 @@ If this doesn't work, then go back to the previous step and ensure the dataset i
     <step>
         <query>select * from httplogs where size > 20000 and method = "POST"</query>
         <doc>
-            QRAWL is intended to be compatible with SQL and can perform typical filtering operations.
+            RAW is intended to be compatible with SQL and can perform typical filtering operations.
         </doc>
     </step>
 
@@ -39,7 +42,7 @@ If this doesn't work, then go back to the previous step and ensure the dataset i
     <step>
         <query>select distinct method, count(*) from httplogs group by method</query>
         <doc>
-In QRAWL, the star sign is in fact an alias to *the subset of httplogs having a certain method*, and the
+In RAW, the star sign is in fact an alias to *the subset of httplogs having a certain method*, and the
 count operator runs on that collection and returns the number of elements it contains. This means
 the star sign can be handled as a collection itself. Click next to see.
         </doc>
@@ -108,7 +111,7 @@ to use *partition* (click next).
 
     <step>
         <doc>This is it for nested queries. Now let's review the scripting capabilities
-            of QRAWL.
+            of RAW.
         </doc>
         <query>
         </query>
@@ -122,7 +125,7 @@ to use *partition* (click next).
                 large // returned value
             }
         </query>
-        <doc>QRAWL supports variable assignments to simplify the edition of queries.
+        <doc>RAW supports variable assignments to simplify the edition of queries.
 
 Below we assign an integer value to *x*, then we store results of a *select* in *large*,
 finally the program returns the value of *large*.
@@ -143,7 +146,7 @@ finally the program returns the value of *large*.
     </step>
 
     <step><doc>
-Let's have a look to regular expressions in QRAWL queries now.
+Let's have a look to regular expressions in RAW queries now.
         </doc>
     </step>
 
@@ -156,7 +159,7 @@ Let's have a look to regular expressions in QRAWL queries now.
         </query>
         <doc>
 This function using a regular expression to extract the root directory of a
-URL. This is a feature of QRAWL: the *parse as* operator parses the string *x* as the
+URL. This is a feature of RAW: the *parse as* operator parses the string *x* as the
 given regular expression and returns the string matching the group (the inner
 part between parenthesis).
 
@@ -237,7 +240,7 @@ from log_example
 </query>
     <doc>The HTTP requests are encoded in plain strings which have a specific format.
 It is not a well structured CSV file.
-We saw how QRAWL can apply regular expressions to strings. Let's use this to read the file and
+We saw how RAW can apply regular expressions to strings. Let's use this to read the file and
 tokenize the string.
 
 First we need to access that string with a variable. For that we use the *in* syntax. Click next.</doc>
